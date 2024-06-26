@@ -1,7 +1,6 @@
 import streamlit as st
 import os
 import tempfile
-from functions import get_paths,files_to_text,text_spliter,text2vectors,chat_with_llm
 from voice_recognition import get_audio,speech
 import sys
 import time 
@@ -68,36 +67,8 @@ if uploaded_files:
         time.sleep(5)
     st.markdown("<h3 style='text-align: center;'>enter your query : by voice </h3>", unsafe_allow_html=True)
     query = st.text_input("enter your query ...")
-    # voice_button=st.button("voice query",disabled=False)    
-    if query :
-        voice_button=st.button("voice query",disabled=True)
-        chat_response = chat_with_llm(query,vector_data)
-        with st.spinner('processing ....'):
-            time.sleep(5)
-        status='response:'
-        st.write(status)
-        st.write(chat_response)
-    else:
-        voice_button=st.button("voice query",disabled=False)
-        query=""
-        if voice_button:
-            speech('This is Sarah AI Voice Assistant , How can I help You?')
-            while(True):
-                text_voice = get_audio()
-                # text_voice += "chatgpt, ask me several clarifying questions that help you get better context"
-                if(text_voice == "stop" or text_voice == "close"):
-                    st.write("stop voice conversation..." )
-                    sys.exit()
-                else:
-                    st.write("your query :"+text_voice)
-                    st.spinner('query processing ....')
-                    chat_response = chat_with_llm(text_voice,vector_data)
-                    status='AI response:'
-                    st.write(status)
-                    st.write(chat_response)
-                    speech(chat_response)
-                    speech(" IF you want continue ask more question , or quit by saying stop or close")
-
+    
+                   
 
 
 
