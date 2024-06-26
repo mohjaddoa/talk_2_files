@@ -5,7 +5,16 @@ from functions import get_paths,files_to_text,text_spliter,text2vectors,chat_wit
 from voice_recognition import get_audio,speech
 import sys
 import time 
-
+import os
+import tempfile
+from langchain.document_loaders import PyPDFLoader
+from langchain.document_loaders import Docx2txtLoader
+from langchain.document_loaders import TextLoader
+from langchain.vectorstores import chroma
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.chains import RetrievalQA
+from langchain_community.chat_models import ChatOpenAI
 ## title
 st.markdown("<h1 style='text-align: center;'>AI Voice Assistant</h1>", unsafe_allow_html=True)
 
