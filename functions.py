@@ -1,14 +1,5 @@
 ### this function return files path
-import os
-import tempfile
-from langchain.document_loaders import PyPDFLoader
-from langchain.document_loaders import Docx2txtLoader
-from langchain.document_loaders import TextLoader
-from langchain.vectorstores import chroma
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.chains import RetrievalQA
-from langchain_community.chat_models import ChatOpenAI
+
 
 os.environ["OPENAI_API_KEY"] = "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"
 
